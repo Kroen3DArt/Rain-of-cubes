@@ -3,35 +3,38 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private const string ObstacleTag = "Obstacle";
-
     private int _minLiveTime = 2;
     private int _maxLiveTime = 6;
     private bool _isColorChanged = false;
-    private Color _defaultColor = Color.white;
+    private Material _material;
+
+    private void Awake()
+    {
+        _material = GetComponent<Renderer>().material;
+    }
 
     private void OnEnable()
     {
-        GetComponent<Renderer>().material.color = _defaultColor;
+        _material.color = Color.white;
         _isColorChanged = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(ObstacleTag))
+        if (collision.gameObject.GetComponent<Platform>())
         {
             if (_isColorChanged == false)
             {
-                GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
+                _material.color = Random.ColorHSV();
                 _isColorChanged = true;
             }
             
             int liveTime = Random.Range(_minLiveTime, _maxLiveTime + 1);
-            StartCoroutine(ElapseTame(liveTime));
+            StartCoroutine(CountLiveTime(liveTime));
         }
     }
 
-    private IEnumerator ElapseTame(int liveTime)
+    private IEnumerator CountLiveTime(int liveTime)
     {
         yield return new WaitForSeconds(liveTime);
         gameObject.SetActive(false);

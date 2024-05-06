@@ -250,7 +250,7 @@ MonoBehaviour:
   _count: 15
   _cubePrefab: {fileID: 2113939718672442077, guid: d6bcad59c59fb4747841739291f81a8b, type: 3}
   _spawnPoint: {fileID: 1920599199}
-  _timeBetweenSpawn: 0.8
+  _delay: 0.8
   _minPositionX: -40
   _maxPositionX: 40
 --- !u!4 &891442415
@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 1035726416}
   - component: {fileID: 1035726415}
   - component: {fileID: 1035726414}
+  - component: {fileID: 1035726418}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Obstacle
@@ -466,6 +467,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035726418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035726412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7615a6df8d9e90840b0b37b8b318b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1920599198
 GameObject:
   m_ObjectHideFlags: 0
