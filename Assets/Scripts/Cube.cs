@@ -22,7 +22,7 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Platform>(out Platform platform))
+        if (collision.gameObject.TryGetComponent(out Platform platform))
         {
             if (_isColorChanged == false)
             {

@@ -5,11 +5,11 @@ using System.Linq;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private Transform _container;
-    [SerializeField] private int _count;
+    [SerializeField] private int _count = 15;
 
     private List<Cube> _pool = new();
 
-    protected void Initialize(Cube cubePrefab)
+    public void Initialize(Cube cubePrefab)
     {
         for (int i = 0; i < _count; i++)
         {
@@ -20,9 +20,9 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    protected bool TryGetObject(out Cube item)
+    public bool TryGetObject(out Cube item)
     {
-        item = _pool.First(cube => cube.gameObject.activeSelf == false);
+        item = _pool.FirstOrDefault(cube => cube.gameObject.activeSelf == false);
 
         return item != null;
     }
