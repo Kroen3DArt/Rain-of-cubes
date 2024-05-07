@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1250e8a44b30b264c98655d4945de1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 2101344483}
+  _container: {fileID: 2101344484}
   _count: 15
-  _cubePrefab: {fileID: 2113939718672442077, guid: d6bcad59c59fb4747841739291f81a8b, type: 3}
+  _cubePrefab: {fileID: 5048018438069826302, guid: d6bcad59c59fb4747841739291f81a8b, type: 3}
   _spawnPoint: {fileID: 1920599199}
   _delay: 0.8
   _minPositionX: -40
@@ -265,8 +265,7 @@ Transform:
   m_LocalPosition: {x: 4.471428, y: 16.05001, z: 9.116898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2101344484}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
@@ -534,12 +533,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101344483}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.471428, y: 16.05001, z: 9.116898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 891442415}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127117810
 GameObject:
@@ -657,3 +656,4 @@ SceneRoots:
   - {fileID: 1035726417}
   - {fileID: 891442415}
   - {fileID: 1920599199}
+  - {fileID: 2101344484}

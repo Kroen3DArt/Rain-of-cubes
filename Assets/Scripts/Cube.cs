@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class Cube : MonoBehaviour
 {
     private int _minLiveTime = 2;
@@ -21,7 +22,7 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Platform>())
+        if (collision.gameObject.TryGetComponent<Platform>(out Platform platform))
         {
             if (_isColorChanged == false)
             {

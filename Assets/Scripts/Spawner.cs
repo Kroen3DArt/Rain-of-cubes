@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Spawner : ObjectPool
 {
-    [SerializeField] private GameObject _cubePrefab;
+    [SerializeField] private Cube _cubePrefab;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _delay = 0.8f;
     [SerializeField] private int _minPositionX;
@@ -21,17 +21,17 @@ public class Spawner : ObjectPool
         {
             yield return new WaitForSeconds(_delay);
 
-            if (TryGetObject(out GameObject cube))
+            if (TryGetObject(out Cube cube))
             {
-                Vector3 spawnPosition = _spawnPoint.position + new Vector3(Random.Range(_minPositionX, _maxPositionX), 0f, 0f); 
-                SetCube(cube, spawnPosition);
+                Vector3 spawnPosition = _spawnPoint.position + new Vector3(Random.Range(_minPositionX, _maxPositionX), 0f, 0f);
+                ActivateCube(cube, spawnPosition);
             }
         }
     }
 
-    private void SetCube(GameObject cube, Vector3 spawnPoint)
+    private void ActivateCube(Cube cube, Vector3 spawnPoint)
     {
-        cube.SetActive(true);
+        cube.gameObject.SetActive(true);
         cube.transform.position = spawnPoint;
     }
 }

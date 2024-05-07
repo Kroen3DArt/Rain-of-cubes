@@ -4,25 +4,25 @@ using System.Linq;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObject _container;
+    [SerializeField] private Transform _container;
     [SerializeField] private int _count;
 
-    private List<GameObject> _pool = new();
+    private List<Cube> _pool = new();
 
-    protected void Initialize(GameObject cubePrefab)
+    protected void Initialize(Cube cubePrefab)
     {
         for (int i = 0; i < _count; i++)
         {
-            GameObject spawnedCube = Instantiate(cubePrefab, _container.transform);
-            spawnedCube.SetActive(false);
+            Cube spawnedCube = Instantiate(cubePrefab, _container.gameObject.transform);
+            spawnedCube.gameObject.SetActive(false);
 
             _pool.Add(spawnedCube);
         }
     }
 
-    protected bool TryGetObject(out GameObject item)
+    protected bool TryGetObject(out Cube item)
     {
-        item = _pool.First(cube => cube.activeSelf == false);
+        item = _pool.First(cube => cube.gameObject.activeSelf == false);
 
         return item != null;
     }
